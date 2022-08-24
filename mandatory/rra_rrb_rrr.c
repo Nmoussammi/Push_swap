@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 14:45:48 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/19 14:13:54 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:11:19 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:11:22 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,18 @@ void	reverse_rotate(t_stack *stack, char *str)
 		i--;
 	}
 	stack->arr[0] = tmp;
-	ft_putstr(str);
+	if (str != NULL)
+		ft_putstr(str);
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	reverse_rotate(stack_a, "rra");
-	reverse_rotate(stack_b, "rrb");
+	reverse_rotate(stack_a, NULL);
+	reverse_rotate(stack_b, NULL);
 	ft_putstr("rrr");
 }
 
-void	reverse_rotate_binary(t_stack *stack, char *str)
+void	reverse_rotate_binary(t_stack *stack)
 {
 	int	i;
 	int	*tmp;
@@ -48,12 +49,10 @@ void	reverse_rotate_binary(t_stack *stack, char *str)
 		i--;
 	}
 	stack->rank_bin[0] = tmp;
-	ft_putstr(str);
 }
 
 void	rrr_binary(t_stack *stack_a, t_stack *stack_b)
 {
-	reverse_rotate_binary(stack_a, "rra");
-	reverse_rotate_binary(stack_b, "rrb");
-	ft_putstr("rrr");
+	reverse_rotate_binary(stack_a);
+	reverse_rotate_binary(stack_b);
 }

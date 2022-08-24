@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 14:39:01 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/20 18:56:06 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:11:03 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:11:06 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,38 @@ void	sort_numbers(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+void	radix_instruction(t_stack *stack_a, t_stack *stack_b, int j)
+{
+	if (stack_a->rank_bin[0][j] == 0)
+	{
+		push(stack_b, stack_a, "pb");
+		push_binary(stack_b, stack_a);
+	}
+	else
+	{
+		rotate(stack_a, "ra");
+		rotate_binary(stack_a);
+	}
+}
+
 void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	j;
 	int	len;
 
-	j = stack_a->max_size - 1;
-	while (j >= 0)
+	j = stack_a->max_size;
+	while (--j >= 0)
 	{	
 		len = stack_a->len;
 		while (len > 0)
 		{
-			if (stack_a->rank_bin[0][j] == 0)
-			{
-				
-				push_binary(stack_b, stack_a, "pb");
-			}
-			else
-			{
-				
-				rotate_binary(stack_a, "ra");
-			}
+			radix_instruction(stack_a, stack_b, j);
 			len--;
 		}
 		while (stack_b->len != 0)
-			push_binary(stack_a, stack_b, "pa");
-		j--;
+		{
+			push(stack_a, stack_b, "pa");
+			push_binary(stack_a, stack_b);
+		}
 	}
 }

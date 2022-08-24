@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 14:14:47 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/20 18:24:59 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:11:44 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:11:46 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ char	*ft_strdup(char *s1)
 int	*ft_strdup_int(t_stack *stack)
 {
 	int	*new;
-	//int *res;
 	int	i;
 
 	new = (int *)malloc(sizeof(int) * stack->len);
@@ -79,8 +78,6 @@ int	*ft_strdup_int(t_stack *stack)
 	i = -1;
 	while (++i < stack->len)
 		new[i] = stack->arr[i];
-	//res = new;
-	//free(new);
 	return (new);
 }
 

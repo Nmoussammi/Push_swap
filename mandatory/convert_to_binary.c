@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 14:41:08 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/19 14:23:20 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:10:15 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:10:20 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int	*convert_one_number(t_stack *stack, int num)
 	max = find_max(stack);
 	stack->max_size = nb_binary(max);
 	nb = (int *)malloc(sizeof(int) * stack->max_size);
-	while (num != 0 && i < stack->max_size)
+	if (!nb)
+		return (0);
+	while (i < stack->max_size)
 	{
 		nb[i] = num % 2;
 		num /= 2;
@@ -70,6 +72,8 @@ int	**convert_all_numbers(t_stack *stack)
 
 	i = 0;
 	stack->rank_bin = (int **)malloc(sizeof(int *) * stack->len);
+	if (!stack->rank_bin)
+		return (0);
 	while (i < stack->len)
 	{
 		stack->rank_bin[i] = convert_one_number(stack, stack->rank[i]);

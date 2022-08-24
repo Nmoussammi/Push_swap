@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 16:55:45 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/19 21:13:07 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:12:33 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:12:35 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	check_sort(t_stack *stack)
 	while ((i < (stack->len) - 1) && (stack->arr[i] < stack->arr[i + 1]))
 		i++;
 	if ((i + 1) == stack->len)
-		ft_print_msg("OK");
+		return (1);
 	return (0);
 }
 
@@ -98,6 +98,8 @@ void	check_all(t_stack *stack, int argc, char **argv)
 	stack->list = ft_split(stack->tab, ' ');
 	stack->len = len_stack(stack);
 	stack->arr = (int *)malloc(4 * stack->len);
+	if (!stack->arr)
+		return ;
 	check_arg(stack);
 	i = 0;
 	while (i < stack->len)
@@ -106,5 +108,4 @@ void	check_all(t_stack *stack, int argc, char **argv)
 		i++;
 	}
 	check_double_number(stack);
-	check_sort(stack);
 }

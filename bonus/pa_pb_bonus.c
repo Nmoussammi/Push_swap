@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 18:30:50 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/19 21:02:44 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:12:47 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:12:49 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,10 @@ void	ft_putstr(char *str)
 	write (1, "\n", 1);
 }
 
-void	push(t_stack *stack_a, t_stack *stack_b)
+void	push_suit(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
 
-	stack_b->len--;
-	stack_a->len++;
-	stack_a->new_arr = malloc(sizeof(int) * stack_a->len);
-	stack_b->new_arr = malloc(sizeof(int) * stack_b->len);
 	i = 1;
 	while (i < stack_a->len)
 	{
@@ -56,6 +52,24 @@ void	push(t_stack *stack_a, t_stack *stack_b)
 		stack_b->new_arr[i] = stack_b->arr[i + 1];
 		i++;
 	}
-	stack_a->arr = stack_a->new_arr;
-	stack_b->arr = stack_b->new_arr;
+}
+
+void	push(t_stack *stack_a, t_stack *stack_b)
+{
+	int	i;
+
+	if (stack_b->arr != NULL)
+	{
+		stack_b->len--;
+		stack_a->len++;
+		stack_a->new_arr = malloc(sizeof(int) * stack_a->len);
+		stack_b->new_arr = malloc(sizeof(int) * stack_b->len);
+		if (!stack_a->new_arr || !stack_b->new_arr)
+			return ;
+		push_suit(stack_a, stack_b);
+		free(stack_a->arr);
+		free(stack_b->arr);
+		stack_a->arr = stack_a->new_arr;
+		stack_b->arr = stack_b->new_arr;
+	}
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 19:04:38 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/20 18:03:39 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:10:50 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:10:52 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,15 @@ int		**convert_all_numbers(t_stack *stack);
 int		*reverse_array(t_stack *stack, int *tab);
 int		nbr_sign(char *str);	
 void	radix_sort(t_stack *stack_a, t_stack *stack_b);
-void	rotate_binary(t_stack *stack_a, char *str);
+void	rotate_binary(t_stack *stack_a);
 void	rr_binary(t_stack *stack_a, t_stack *stack_b);
-void	push_binary(t_stack *stack_a, t_stack *stack_b, char *str);
+void	push_binary(t_stack *stack_a, t_stack *stack_b);
 void	ft_putstr(char *msg);
 int		ft_strcmp(char *s1, char *s2);
 void	init(int ac, char **av, t_stack *stack_a, t_stack *stack_b);
 void	ft_free_all(t_stack *stack);
 void	sort_numbers(t_stack *stack_a, t_stack *stack_b);
-void	reverse_rotate_binary(t_stack *stack, char *str);
+void	reverse_rotate_binary(t_stack *stack);
 void	rrr_binary(t_stack *stack_a, t_stack *stack_b);
-
+void	radix_instruction(t_stack *stack_a, t_stack *stack_b, int j);
 #endif

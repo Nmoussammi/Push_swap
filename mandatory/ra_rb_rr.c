@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 14:45:09 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/18 17:49:57 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:10:57 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:10:59 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,18 @@ void	rotate(t_stack *stack_a, char *str)
 		i++;
 	}
 	stack_a->arr[stack_a->len - 1] = tmp;
-	ft_putstr(str);
+	if (str != NULL)
+		ft_putstr(str);
 }
 
 void	rr(t_stack *stack_a, t_stack *stack_b)
 {
-	rotate(stack_a, "ra");
-	rotate(stack_b, "rb");
+	rotate(stack_a, NULL);
+	rotate(stack_b, NULL);
 	ft_putstr("rr");
 }
 
-void	rotate_binary(t_stack *stack_a, char *str)
+void	rotate_binary(t_stack *stack_a)
 {
 	int	i;
 	int	*tmp ;
@@ -48,12 +49,10 @@ void	rotate_binary(t_stack *stack_a, char *str)
 		i++;
 	}
 	stack_a->rank_bin[stack_a->len - 1] = tmp;
-	ft_putstr(str);
 }
 
 void	rr_binary(t_stack *stack_a, t_stack *stack_b)
 {
-	rotate_binary(stack_a, "ra");
-	rotate_binary(stack_b, "rb");
-	ft_putstr("rr");
+	rotate_binary(stack_a);
+	rotate_binary(stack_b);
 }

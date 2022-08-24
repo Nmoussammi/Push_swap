@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 19:04:42 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/20 18:39:47 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:10:44 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:46:23 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	main(int argc, char **argv)
 
 	stack_a = malloc(sizeof(t_stack));
 	stack_b = malloc(sizeof(t_stack));
+	if (!stack_a || !stack_b)
+		return (0);
 	if (argc > 1)
 	{
 		init(argc, argv, stack_a, stack_b);

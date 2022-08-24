@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 18:31:09 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/19 20:50:07 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:13:23 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:13:25 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,17 @@ void	reverse_rotate(t_stack *stack)
 	int	i;
 	int	tmp;
 
-	i = stack->len - 1;
-	tmp = stack->arr[stack->len - 1];
-	while (i > 0)
+	if (stack->arr != NULL)
 	{
-		stack->arr[i] = stack->arr[i - 1];
-		i--;
+		i = stack->len - 1;
+		tmp = stack->arr[stack->len - 1];
+		while (i > 0)
+		{
+			stack->arr[i] = stack->arr[i - 1];
+			i--;
+		}
+		stack->arr[0] = tmp;
 	}
-	stack->arr[0] = tmp;
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)

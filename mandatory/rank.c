@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 14:40:07 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/20 18:38:52 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:11:13 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:11:15 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	*sort_array(t_stack *stack)
 	int	tmp;
 
 	new = ft_strdup_int(stack);
-	
 	i = -1;
 	while (++i < stack->len)
 	{

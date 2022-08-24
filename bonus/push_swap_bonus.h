@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 16:54:57 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/19 21:12:10 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:13:09 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:17:23 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
+# define BUFFER_SIZE 1024
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
-# define BUFFER_SIZE 1024
 
 typedef struct s_stack
 {
@@ -59,5 +59,6 @@ char	*ft_read(char *string, int fd);
 char	*get_line(char *str);
 char	*get_rest(char *str);
 void	check_instruction(char *inst, t_stack *stack_a, t_stack *stack_b);
+void	push_suit(t_stack *stack_a, t_stack *stack_b);
 
 #endif

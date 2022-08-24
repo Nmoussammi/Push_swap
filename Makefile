@@ -6,7 +6,7 @@
 #    By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 19:03:55 by nmoussam          #+#    #+#              #
-#    Updated: 2022/08/19 20:47:49 by nmoussam         ###   ########.fr        #
+#    Updated: 2022/08/20 22:08:34 by nmoussam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ $(NAME) : $(OFILES)
 	@echo "\033[1;35mCompiling Mandatory Successfull"
 	
 %.o:%.c $(INC) $(INC_B)
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@ 
 	
 bonus: $(NAME_B)
 

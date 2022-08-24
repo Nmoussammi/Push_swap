@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 17:14:37 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/19 21:23:36 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:13:03 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:47:02 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,21 @@ int	main(int argc, char **argv)
 
 	stack_a = malloc(sizeof(t_stack));
 	stack_b = malloc(sizeof(t_stack));
+	if (!stack_a || !stack_b)
+		return (0);
 	if (argc > 1)
 	{
 		init(argc, argv, stack_a, stack_b);
-		check_sort(stack_a);
 		inst = get_next_line(0);
 		while (inst)
 		{
 			check_instruction(inst, stack_a, stack_b);
+			free(inst);
 			inst = get_next_line(0);
-		}	
-		if (check_sort(stack_a) == 0)
+		}
+		if (check_sort(stack_a) == 1 && stack_b->len == 0)
+			ft_print_msg("OK");
+		else
 			ft_print_msg("KO");
 	}
 }

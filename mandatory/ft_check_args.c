@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmoussam <nmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 19:03:47 by nmoussam          #+#    #+#             */
-/*   Updated: 2022/08/20 18:48:35 by nmoussam         ###   ########.fr       */
+/*   Created: 2022/08/24 15:10:23 by nmoussam          #+#    #+#             */
+/*   Updated: 2022/08/24 15:10:26 by nmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void	check_all(t_stack *stack, int argc, char **argv)
 	stack->list = ft_split(stack->tab, ' ');
 	stack->len = len_stack(stack);
 	stack->arr = (int *)malloc(4 * stack->len);
+	if (!stack->arr)
+		return ;
 	check_arg(stack);
 	i = 0;
 	while (i < stack->len)
